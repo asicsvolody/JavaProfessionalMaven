@@ -35,7 +35,6 @@ public class Task2ParamTest {
 
     @Before
     public void init(){
-        System.out.println("init");
         task2 = new Task2();
     }
 

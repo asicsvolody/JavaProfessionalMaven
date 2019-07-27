@@ -11,7 +11,6 @@ public class Task2UnitTest {
 
     @Before
     public void init(){
-        System.out.println("init");
         task2 = new Task2();
     }
 
