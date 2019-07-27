@@ -18,7 +18,7 @@ public class Server {
 
         Socket socket = null;
 
-        adminLog = Logger.getLogger("admin");
+        adminLog = Logger.getLogger("adminChat");
         try {
             AuthService.connect();
 
