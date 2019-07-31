@@ -72,8 +72,7 @@ public class Server {
                 o.sendMsg(msg);
             }
         }
-        writeToAdminLogDebug(String.format("%s: %s",from.getNick(),msg));
-
+        writeToAdminLogDebug(msg);
     }
 
     public void sendPersonalMsg(ClientHandler from, String nickTo, String msg) {
