@@ -20,7 +20,7 @@ public class Server {
 
         adminLog = Logger.getLogger("adminChat");
         try {
-            AuthService.connect();
+            DataBaseService.connect();
 
             server = new ServerSocket(8189);
             writeToAdminLogInfo("Server is start");
@@ -49,7 +49,7 @@ public class Server {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            AuthService.disconnect();
+            DataBaseService.disconnect();
         }
     }
     public boolean isNickBusy(String nick) {
@@ -69,7 +69,7 @@ public class Server {
 
     public void broadcastMsg(ClientHandler from, String msg) {
         for (ClientHandler o : clients) {
-            if (!AuthService.isInBlackList(from.getNick(),o.getNick())) {
+            if (!DataBaseService.isInBlackList(from.getNick(),o.getNick())) {
                 o.sendMsg(msg);
             }
         }
@@ -79,7 +79,7 @@ public class Server {
     public void sendPersonalMsg(ClientHandler from, String nickTo, String msg) {
         for (ClientHandler o : clients) {
             if (o.getNick().equals(nickTo)) {
-                if(AuthService.isInBlackList(o.getNick(),from.getNick())){
+                if(DataBaseService.isInBlackList(o.getNick(),from.getNick())){
                     from.sendMsg("/wsystemmsg "+nickTo+" Вы находитесь в черном списке.");
                     return;
                 }else {
@@ -97,7 +97,7 @@ public class Server {
         clients.add(clientHandler);
         broadcastSystemMsg(clientHandler.getNick()+" подключился");
         broadcastClientList();
-        AuthService.sendAllMessage(clientHandler);
+        DataBaseService.sendAllMessage(clientHandler);
 
 
     }

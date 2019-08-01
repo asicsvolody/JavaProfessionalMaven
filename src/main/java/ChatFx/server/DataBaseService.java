@@ -2,7 +2,7 @@ package ChatFx.server;
 
 import java.sql.*;
 
-public class AuthService {
+public class DataBaseService {
 
     private static Connection connection;
     private static Statement stmt;
