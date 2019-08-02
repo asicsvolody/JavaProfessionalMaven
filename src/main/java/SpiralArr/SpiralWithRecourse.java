@@ -1,3 +1,5 @@
+package SpiralArr;
+
 public class SpiralWithRecourse {
     private int maxNumber;
     private int horizontalMax;

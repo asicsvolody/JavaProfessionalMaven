@@ -1,3 +1,4 @@
+package SpiralArr;
 
 class SpiralNotRecourse {
     private int weight;
